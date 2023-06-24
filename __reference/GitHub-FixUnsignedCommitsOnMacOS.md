@@ -129,6 +129,9 @@ ssb   cv25519/3A2939B4338B37AF 2023-06-24 [E]
 # OPTIONAL: Remove the --global flag to only apply this setting to the current repository
 % git config --global user.signingkey EBFD521F57241BFA2333D8113783B1C530AC3FEB
 % git config --global commit.gpgSign true
+
+# Let's make sure we don't have any settings that might be defaulting to using SSH for signing, etc.
+% git config --global --unset gpg.format
 ```
 
-Let's see if this works
+Let's see if this works:
