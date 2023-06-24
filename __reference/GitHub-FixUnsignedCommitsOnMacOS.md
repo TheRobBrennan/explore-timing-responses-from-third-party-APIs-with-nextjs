@@ -131,4 +131,4 @@ ssb   cv25519/3A2939B4338B37AF 2023-06-24 [E]
 % git config --global commit.gpgSign true
 ```
 
-Let's see if this works.
+Let's see if this works using `-s`...
