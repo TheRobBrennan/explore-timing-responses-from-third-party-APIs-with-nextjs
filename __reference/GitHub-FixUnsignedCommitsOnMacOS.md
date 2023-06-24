@@ -116,12 +116,19 @@ We are almost there. There is one final step from our original guide at [https:/
 Let's update git to securely commit our code globally:
 
 ```sh
-% git config --global commit.gpgSign true
+# Let's find the example key ID we want to sign our commits with
+% gpg --list-secret-keys --keyid-format LONG
+[keyboxd]
+---------
+sec   ed25519/3783B1C530AC3FEB 2023-06-24 [SC]
+      EBFD521F57241BFA2333D8113783B1C530AC3FEB
+uid                 [ultimate] Rob Brennan <rob@therobbrennan.com>
+ssb   cv25519/3A2939B4338B37AF 2023-06-24 [E]
 
+# Let's use the example key ID 'EBFD521F57241BFA2333D8113783B1C530AC3FEB' as our signing key
 # OPTIONAL: Remove the --global flag to only apply this setting to the current repository
-% git config commit.gpgSign true
+% git config --global user.signingkey EBFD521F57241BFA2333D8113783B1C530AC3FEB
+% git config --global commit.gpgSign true
 ```
 
-### OPTIONAL: Enable commit signing in VS Code
-
-Let's see if this works...
+Let's see if this works.
