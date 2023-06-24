@@ -122,3 +122,6 @@ Let's update git to securely commit our code globally:
 % git config commit.gpgSign true
 ```
 
+### OPTIONAL: Enable commit signing in VS Code
+
+Let's see if this works!
