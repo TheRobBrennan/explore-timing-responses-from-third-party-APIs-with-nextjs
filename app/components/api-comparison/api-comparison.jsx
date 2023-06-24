@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 
 export default function APIComparison() {
   const API_ENDPOINTS = ["https://www.espn.com", "https://www.nhl.com"];
-
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -11,14 +10,16 @@ export default function APIComparison() {
       const promises = apiEndpoints.map(async (endpoint) => {
         const startTime = performance.now();
 
-        //const res = await fetch(endpoint);
-        await fetch(endpoint);
+        // Let's see how long our request takes to complete
+        const res = await fetch(endpoint).then((res) => res);
 
         const endTime = performance.now();
 
         return {
           endpoint,
-          responseTime: endTime - startTime,
+          responseTimeInMS: endTime - startTime,
+          statusCode: res.statusCode,
+          meta: res,
         };
       });
 
@@ -31,15 +32,16 @@ export default function APIComparison() {
 
   return (
     <div>
-      <h1>API Comparison Results</h1>
+      <h1>API Performance</h1>
       &nbsp;
       <p />
       <ul>
         {results.map((result, index) => (
           <li key={index}>
-            Endpoint: {result.endpoint}
-            <br />
-            Response Time: {result.responseTime.toFixed(2)} ms
+            Response time is {result.responseTimeInMS.toFixed(2)}ms for{" "}
+            <a href={result.endpoint} target="_blank">
+              {result.endpoint}
+            </a>
           </li>
         ))}
       </ul>
