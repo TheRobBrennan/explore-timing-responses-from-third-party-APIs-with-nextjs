@@ -106,7 +106,19 @@ Select `SSH and GPG keys` underneath the `Access` section:
 Let's create a new GPG key using the public key we generated previously:
 ![](assets/03-github-account-access-ssh-and-gpg-keys-new-gpg-key.png)
 ![](assets/04-github-account-access-ssh-and-gpg-keys-new-gpg-key-add-new.png)
-
-Ta-da 🪄
-
 ![](assets/05-github-account-access-ssh-and-gpg-keys-after.png)
+
+We are now ready to commit using our new GPG key. Well, almost. There's one more step to go, and then we are done.
+
+### Configure git to securely commit our code
+We are almost there. There is one final step from our original guide at [https://contributing.bitwarden.com/contributing/commit-signing/](https://contributing.bitwarden.com/contributing/commit-signing/).
+
+Let's update git to securely commit our code globally:
+
+```sh
+% git config --global commit.gpgSign true
+
+# OPTIONAL: Remove the --global flag to only apply this setting to the current repository
+% git config commit.gpgSign true
+```
+
