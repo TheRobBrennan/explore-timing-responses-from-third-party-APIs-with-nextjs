@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { title } from '../../constants'
 
 interface APIEndpoint {
   endpoint: string
@@ -48,7 +49,7 @@ export default function APIComparison() {
 
   return (
     <div>
-      <h1>API Performance</h1>
+      <h1>{title}</h1>
       &nbsp;
       <p />
       <ul>
