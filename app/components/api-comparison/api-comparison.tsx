@@ -9,15 +9,15 @@ interface APIResponse {
   endpoint: string
   responseTime: number
   httpStatusCode: number
-  meta: any
+  res: any
 }
 
 export default function APIComparison() {
-  const [results, setResults] = useState<APIResponse[]>([]);
   const API_REQUESTS: APIEndpoint[] = [
     { endpoint: "https://www.espn.com" },
     { endpoint: "https://www.nhl.com" }
   ]
+  const [results, setResults] = useState<APIResponse[]>([]);
 
   useEffect(() => {
     const fetchAPIResponses = async (apiEndpoints: APIEndpoint[]) => {
@@ -33,7 +33,7 @@ export default function APIComparison() {
           endpoint: url.endpoint,
           responseTime: endTime - startTime,
           httpStatusCode: res.status,
-          meta: res,
+          res,
         };
       });
 
