@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { title } from '../../constants'
 
-interface APIEndpoint {
+interface APIRequest {
   endpoint: string
 }
 
@@ -14,14 +14,14 @@ interface APIResponse {
 }
 
 export default function APIComparison() {
-  const API_REQUESTS: APIEndpoint[] = [
+  const API_REQUESTS: APIRequest[] = [
     { endpoint: "https://www.espn.com" },
     { endpoint: "https://www.nhl.com" }
   ]
   const [results, setResults] = useState<APIResponse[]>([]);
 
   useEffect(() => {
-    const fetchAPIResponses = async (apiEndpoints: APIEndpoint[]) => {
+    const fetchAPIResponses = async (apiEndpoints: APIRequest[]) => {
       const promises = apiEndpoints.map(async (url) => {
         const startTime = performance.now();
 
