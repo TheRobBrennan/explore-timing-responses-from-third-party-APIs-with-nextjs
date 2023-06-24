@@ -44,13 +44,15 @@ export default function APIComparison() {
     fetchAPIResponses(API_REQUESTS);
   }, []);
 
+  if (!results || results.length === 0) return null
+
   return (
     <div>
       <h1>API Performance</h1>
       &nbsp;
       <p />
       <ul>
-        {results.length > 0 && results.map((result, index) => (
+        {results.map((result, index) => (
           <li key={index}>
             Response time is {result.responseTime.toFixed(2)}ms for{" "}
             <a href={result.endpoint} target="_blank" rel="noopener noreferrer">
