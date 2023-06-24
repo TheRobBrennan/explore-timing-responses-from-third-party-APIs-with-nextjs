@@ -13,7 +13,7 @@ interface APIResponse {
 }
 
 export default function APIComparison() {
-  const [results, setResults] = useState<Array<APIResponse>>([]);
+  const [results, setResults] = useState<APIResponse[]>([]);
   const API_REQUESTS: APIEndpoint[] = [
     { endpoint: "https://www.espn.com" },
     { endpoint: "https://www.nhl.com" }
