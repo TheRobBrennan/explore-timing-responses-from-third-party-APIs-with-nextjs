@@ -1,23 +1,21 @@
 "use client";
 import { useState, useEffect } from "react";
 import { title } from '../../constants'
+import { generateAPIRequests } from "@/app/lib/nhl/constants";
 
 interface APIRequest {
-  endpoint: string
+  endpoint: string,
+  shortName?: string
 }
 
-interface APIResponse {
-  endpoint: string
+interface APIResponse extends APIRequest {
   responseTime: number
   httpStatusCode: number
   res: any
 }
 
 export default function APIComparison() {
-  const API_REQUESTS: APIRequest[] = [
-    { endpoint: "https://www.espn.com" },
-    { endpoint: "https://www.nhl.com" }
-  ]
+  const API_REQUESTS: APIRequest[] = generateAPIRequests()
   const [results, setResults] = useState<APIResponse[]>([]);
 
   useEffect(() => {
@@ -32,6 +30,7 @@ export default function APIComparison() {
 
         return {
           endpoint: url.endpoint,
+          shortName: url.shortName,
           responseTime: endTime - startTime,
           httpStatusCode: res.status,
           res,
@@ -55,9 +54,9 @@ export default function APIComparison() {
       <ul>
         {results.map((result, index) => (
           <li key={index}>
-            Response time is {result.responseTime.toFixed(2)}ms for{" "}
+            Response time is <strong>{result.responseTime.toFixed(2)} ms</strong> for{" "}
             <a href={result.endpoint} target="_blank" rel="noopener noreferrer">
-              {result.endpoint}
+              {result.shortName || result.endpoint}
             </a>
           </li>
         ))}
