@@ -110,10 +110,10 @@ Let's create a new GPG key using the public key we generated previously:
 
 We are now ready to commit using our new GPG key. Well, almost. There's one more step to go, and then we are done.
 
-### Configure git to securely commit our code
-We are almost there. There is one final step from our original guide at [https://contributing.bitwarden.com/contributing/commit-signing/](https://contributing.bitwarden.com/contributing/commit-signing/).
+### Configure git to commit our code securely
+We are almost there. One final step from our original guide is at [https://contributing.bitwarden.com/contributing/commit-signing/](https://contributing.bitwarden.com/contributing/commit-signing/).
 
-Let's update git to securely commit our code globally:
+Let's update git to commit our code globally securely:
 
 ```sh
 # Let's find the example key ID we want to sign our commits with
@@ -130,11 +130,11 @@ ssb   cv25519/3A2939B4338B37AF 2023-06-24 [E]
 % git config --global user.signingkey EBFD521F57241BFA2333D8113783B1C530AC3FEB
 % git config --global commit.gpgSign true
 
-# Let's make sure we don't have any settings that might be defaulting to using SSH for signing, etc.
+# Let's ensure we have no settings that might default to using SSH for signing, etc.
 % git config --global --unset gpg.format
 ```
 
-If you're using VS Code and committing using the GUI, please be sure to open your `Settings` and `Enable commit signing`
+If you're using VS Code and committing using the GUI, please be sure to open your `Settings` and `Enable commit signing.`
 
 ![](assets/06-vscode-settings-enable-commit-signing.png)
 
