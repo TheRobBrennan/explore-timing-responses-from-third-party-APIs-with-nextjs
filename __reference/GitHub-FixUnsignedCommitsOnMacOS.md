@@ -124,4 +124,4 @@ Let's update git to securely commit our code globally:
 
 ### OPTIONAL: Enable commit signing in VS Code
 
-Let's see if this works!
+Let's see if this works.
