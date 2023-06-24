@@ -134,4 +134,12 @@ ssb   cv25519/3A2939B4338B37AF 2023-06-24 [E]
 % git config --global --unset gpg.format
 ```
 
-Let's see if this works:
+If you're using VS Code and committing using the GUI, please be sure to open your `Settings` and `Enable commit signing`
+
+![](assets/06-vscode-settings-enable-commit-signing.png)
+
+Let's see if this works...
+
+![](assets/07-github-commit-unverified.png)
+
+Huzzah!!!! 🎉
