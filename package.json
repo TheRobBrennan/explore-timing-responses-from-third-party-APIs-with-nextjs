@@ -2,6 +2,11 @@
   "name": "explore-timing-responses-from-third-party-apis-with-nextjs",
   "version": "0.1.0",
   "private": true,
+  "description": "An example project for exploring third-party API performance and responses with Next.js",
+  "repository": "https://github.com/TheRobBrennan/explore-timing-responses-from-third-party-apis-with-nextjs",
+  "bugs": {
+    "url": "https://github.com/TheRobBrennan/explore-timing-responses-from-third-party-apis-with-nextjs/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
